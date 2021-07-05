@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.upc.fas.jsons.CategoryDto;
+import edu.upc.fas.dtos.CategoryDto;
 import edu.upc.fas.services.CategoryService;
 
 @RestController

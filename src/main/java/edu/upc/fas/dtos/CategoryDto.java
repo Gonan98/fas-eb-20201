@@ -1,4 +1,4 @@
-package edu.upc.fas.jsons;
+package edu.upc.fas.dtos;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package edu.upc.fas.jsons;
+package edu.upc.fas.dtos;
 
 import java.math.BigDecimal;
 
@@ -7,7 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductRequest {
+public class ProductDto {
+    private Long id;
     private String name;
     private Integer stock;
     private BigDecimal price;

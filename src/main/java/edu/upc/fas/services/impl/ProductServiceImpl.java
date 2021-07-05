@@ -1,17 +1,16 @@
 package edu.upc.fas.services.impl;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.upc.fas.dtos.CreateProductDto;
+import edu.upc.fas.dtos.ProductDto;
 import edu.upc.fas.entities.Category;
 import edu.upc.fas.entities.Product;
-import edu.upc.fas.jsons.ProductRequest;
-import edu.upc.fas.jsons.ProductResponse;
 import edu.upc.fas.repositories.CategoryRepository;
 import edu.upc.fas.repositories.ProductRepository;
 import edu.upc.fas.services.ProductService;
@@ -28,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
     private CategoryRepository categoryRepository;
 
     @Override
-    public ProductResponse create(ProductRequest productRequest) {
+    public ProductDto create(CreateProductDto productRequest) {
 
         Category category = categoryRepository.findById(productRequest.getCategoryId()).orElse(null);
 
@@ -38,13 +37,13 @@ public class ProductServiceImpl implements ProductService {
         product.setPrice(productRequest.getPrice());
         product.setCategory(category);
         product = repository.save(product);
-        return MAPPER.map(product, ProductResponse.class);
+        return MAPPER.map(product, ProductDto.class);
     }
 
     @Override
-    public List<ProductResponse> getAll() {
+    public List<ProductDto> getAll() {
         List<Product> products = repository.findAll();
-        return products.stream().map(p -> MAPPER.map(p, ProductResponse.class)).collect(Collectors.toList());
+        return products.stream().map(p -> MAPPER.map(p, ProductDto.class)).collect(Collectors.toList());
     }
 
 }

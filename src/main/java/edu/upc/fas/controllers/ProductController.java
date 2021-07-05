@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.upc.fas.jsons.ProductRequest;
-import edu.upc.fas.jsons.ProductResponse;
+import edu.upc.fas.dtos.CreateProductDto;
+import edu.upc.fas.dtos.ProductDto;
 import edu.upc.fas.services.ProductService;
 
 @RestController
@@ -22,7 +22,7 @@ public class ProductController {
     private ProductService service;
 
     @PostMapping
-    public ResponseEntity<ProductResponse> create(ProductRequest productRequest) {
+    public ResponseEntity<ProductDto> create(CreateProductDto productRequest) {
         try {
             return new ResponseEntity<>(service.create(productRequest), HttpStatus.CREATED);
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductResponse>> getAll() {
+    public ResponseEntity<List<ProductDto>> getAll() {
         try {
             return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
         } catch (Exception e) {

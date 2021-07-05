@@ -1,15 +1,14 @@
 package edu.upc.fas.services.impl;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.upc.fas.dtos.CategoryDto;
 import edu.upc.fas.entities.Category;
-import edu.upc.fas.jsons.CategoryDto;
 import edu.upc.fas.repositories.CategoryRepository;
 import edu.upc.fas.services.CategoryService;
 

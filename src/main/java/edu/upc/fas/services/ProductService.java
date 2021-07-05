@@ -2,12 +2,12 @@ package edu.upc.fas.services;
 
 import java.util.List;
 
-import edu.upc.fas.jsons.ProductRequest;
-import edu.upc.fas.jsons.ProductResponse;
+import edu.upc.fas.dtos.CreateProductDto;
+import edu.upc.fas.dtos.ProductDto;
 
 public interface ProductService {
 
-    ProductResponse create(ProductRequest productRequest);
+    ProductDto create(CreateProductDto productRequest);
 
-    List<ProductResponse> getAll();
+    List<ProductDto> getAll();
 }
